@@ -14,9 +14,11 @@ public class Main {
         ResultSet resultSet = statement.executeQuery("SELECT * from car");
 
         while (resultSet.next()) {
-            System.out.println(resultSet.getInt(1));
-            System.out.println(resultSet.getString("name"));
-            System.out.println(resultSet.getString(3));
+            int id = resultSet.getInt("id");
+            String name = resultSet.getString("name");
+            String country = resultSet.getString("country");
+            Car car = new Car(id, name, country);
+            System.out.println(car);
         }
 
         System.out.println("Подключено");
