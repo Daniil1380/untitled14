@@ -6,12 +6,14 @@ import java.sql.Statement;
 public class Main {
 
     public static void main(String[] args) {
+        //DAO = data access object
+
         try (Connection connection =
                 DriverManager.getConnection("jdbc:postgresql://localhost:5433/postgres",
                         "postgres", "qwerty")) {
 
             Statement statement = connection.createStatement();
-            statement.execute("CREATE TABLE IF NOT EXISTS abc (id int)");
+            //statement.execute("CREATE TABLE IF NOT EXISTS abc (id int)");
             ResultSet resultSet = statement.executeQuery("SELECT * FROM car");
 
             while (resultSet.next()) {
